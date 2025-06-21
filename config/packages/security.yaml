@@ -16,6 +16,7 @@ security:
                 providers:
                     - app_user_provider
                     - in_memory_provider
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -23,6 +24,7 @@ security:
         main:
             lazy: true
             provider: app_chain_provider
+
             custom_authenticator: App\Security\AppAuthenticator
             logout:
                 path: app_logout
