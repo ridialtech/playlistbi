@@ -35,7 +35,6 @@ final class Version20250621143857 extends AbstractMigration
         SQL);
         $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL ON "user" (email)');
 
-
         $this->addSql(<<<SQL
             CREATE TABLE playlist (
                 id $auto NOT NULL,
