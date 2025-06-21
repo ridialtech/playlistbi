@@ -33,10 +33,12 @@ class LoadInitialUsersCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        // predefined demo users
         $users = [
             ['user1@gmail.com', '1234', ['ROLE_USER'], 'User One'],
-            ['user2@gmail.com', '1234', ['ROLE_USER'], 'User Two'],
-            ['uadmin@gmail.com', '1234', ['ROLE_ADMIN'], 'Admin'],
+            ['use2@gmail.com', '1234', ['ROLE_USER'], 'User Two'],
+
+            ['admin@gmail.com', '1234', ['ROLE_ADMIN'], 'Admin'],
         ];
 
         foreach ($users as [$email, $plainPassword, $roles, $name]) {
