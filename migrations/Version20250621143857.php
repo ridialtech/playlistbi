@@ -24,19 +24,19 @@ final class Version20250621143857 extends AbstractMigration
         $clob     = $isSqlite ? 'CLOB' : 'TEXT';
         $datetime = $isSqlite ? 'DATETIME' : 'TIMESTAMP(0) WITHOUT TIME ZONE';
 
-
-        $this->addSql(<<<SQL
+            CREATE TABLE "user" (
+                email VARCHAR(180) NOT NULL,
+                roles $clob NOT NULL,
+                password VARCHAR(255) NOT NULL,
+                name VARCHAR(255) NOT NULL
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL ON "user" (email)');
             CREATE TABLE media (
-                id $auto NOT NULL,
                 owner_id INTEGER NOT NULL,
                 playlist_id INTEGER NOT NULL,
                 title VARCHAR(255) NOT NULL,
                 created_at $datetime NOT NULL,
-
                 CONSTRAINT FK_6A2CA10C7E3C61F9 FOREIGN KEY (owner_id) REFERENCES "user" (id),
                 CONSTRAINT FK_6A2CA10C6BBD148 FOREIGN KEY (playlist_id) REFERENCES playlist (id)
-            )
-        SQL);
         $this->addSql('CREATE INDEX IDX_6A2CA10C7E3C61F9 ON media (owner_id)');
         $this->addSql('CREATE INDEX IDX_6A2CA10C6BBD148 ON media (playlist_id)');
 
