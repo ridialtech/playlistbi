@@ -49,6 +49,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         return new RedirectResponse($this->urlGenerator->generate('playlist_index'));
+
     }
 
     protected function getLoginUrl(Request $request): string

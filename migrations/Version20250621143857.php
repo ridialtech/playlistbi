@@ -74,6 +74,7 @@ final class Version20250621143857 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_75EA56E0FB7336F0 ON messenger_messages (queue_name)');
         $this->addSql('CREATE INDEX IDX_75EA56E0E3BD61CE ON messenger_messages (available_at)');
         $this->addSql('CREATE INDEX IDX_75EA56E016BA31DB ON messenger_messages (delivered_at)');
+
     }
 
     public function down(Schema $schema): void
