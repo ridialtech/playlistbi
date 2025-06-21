@@ -37,7 +37,8 @@ class LoadInitialUsersCommand extends Command
         $users = [
             ['user1@gmail.com', '1234', ['ROLE_USER'], 'User One'],
             ['use2@gmail.com', '1234', ['ROLE_USER'], 'User Two'],
-            ['uadmin@gmail.com', '1234', ['ROLE_ADMIN'], 'Admin'],
+
+            ['admin@gmail.com', '1234', ['ROLE_ADMIN'], 'Admin'],
         ];
 
         foreach ($users as [$email, $plainPassword, $roles, $name]) {
