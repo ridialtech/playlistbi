@@ -42,6 +42,7 @@ final class Version20250621143857 extends AbstractMigration
                 title VARCHAR(255) NOT NULL,
                 description $clob DEFAULT NULL,
                 created_at $datetime NOT NULL,
+
                 CONSTRAINT FK_D782112D7E3C61F9 FOREIGN KEY (owner_id) REFERENCES "user" (id)
             )
         SQL);
@@ -61,6 +62,7 @@ final class Version20250621143857 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_6A2CA10C7E3C61F9 ON media (owner_id)');
         $this->addSql('CREATE INDEX IDX_6A2CA10C6BBD148 ON media (playlist_id)');
 
+
         $this->addSql(<<<SQL
             CREATE TABLE messenger_messages (
                 id $auto NOT NULL,
@@ -70,11 +72,13 @@ final class Version20250621143857 extends AbstractMigration
                 created_at $datetime NOT NULL,
                 available_at $datetime NOT NULL,
                 delivered_at $datetime DEFAULT NULL
+
             )
         SQL);
         $this->addSql('CREATE INDEX IDX_75EA56E0FB7336F0 ON messenger_messages (queue_name)');
         $this->addSql('CREATE INDEX IDX_75EA56E0E3BD61CE ON messenger_messages (available_at)');
         $this->addSql('CREATE INDEX IDX_75EA56E016BA31DB ON messenger_messages (delivered_at)');
+
     }
 
     public function down(Schema $schema): void

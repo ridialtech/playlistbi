@@ -16,5 +16,6 @@ final class HomeController extends AbstractController
         }
 
         return $this->redirectToRoute('playlist_index');
+
     }
 }
